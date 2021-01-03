@@ -10,8 +10,10 @@ db = SQLAlchemy(app)
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200), nullable=False)
     content = db.Column(db.String(200), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Task %r>' % self.id
@@ -21,7 +23,8 @@ class Todo(db.Model):
 def index():
     if request.method == 'POST':
         task_content = request.form['content']
-        new_task = Todo(content=task_content)
+        task_name = request.form['name']
+        new_task = Todo(name=task_name, content=task_content)
         try:
             db.session.add(new_task)
             db.session.commit()
@@ -48,8 +51,9 @@ def delete(id):
 def update(id):
     task = Todo.query.get_or_404(id)
     if request.method == 'POST':
+        task.name = request.form['name']
         task.content = request.form['content']
-
+        task.updated_at = datetime.utcnow()
         try:
             db.session.commit()
             return redirect('/')
