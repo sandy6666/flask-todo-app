@@ -16,6 +16,7 @@ body {
   border-bottom: 1px solid #000 !important;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
+  border-bottom-width: 0px !important;
 }
 
 .table td {
@@ -24,6 +25,7 @@ body {
   border-top: none !important;
   text-align: center;
   vertical-align: middle;
+  border-bottom-width: 0px !important;
 }
 
 .container,
@@ -40,4 +42,18 @@ body {
 .actions {
   display: flex;
   flex-direction: column;
+}
+
+.data-row {
+  background-color: #758283;
+}
+
+.headers-row {
+  background-color: #242b2e;
+  color: antiquewhite;
+}
+
+a {
+  color: black !important;
+  text-decoration: none !important;
 }
