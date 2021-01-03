@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  overflow: hidden !important;
   background-color: #ef5354 !important;
 }
 
@@ -56,4 +57,10 @@ body {
 a {
   color: black !important;
   text-decoration: none !important;
+}
+
+.completed-tasks-btn {
+  padding-right: 6px !important;
+  text-align: right !important;
+  margin-bottom: 1%;
 }

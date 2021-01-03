@@ -3,6 +3,19 @@
 {%endblock %} {% block body%}
 <div class="content">
   <h1 class="text-center">Task Master</h1>
+  <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-3 mg-4 completed-tasks-btn">
+      <a href="#">
+        <input
+          type="submit"
+          value="Show Completed Tasks"
+          class="btn btn-secondary"
+        />
+      </a>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
   {% if tasks|length < 1 %}
   <h4 class="text-center">No tasks available. After adding it shows up here</h4>
   {% else %}
